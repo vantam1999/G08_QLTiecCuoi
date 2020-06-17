@@ -1,0 +1,75 @@
+﻿.book {
+    &__tabs {
+        margin: 30px 0;
+    }
+
+    .tabs__direction {
+        @include flex(center, center);
+        margin-bottom: 40px;
+
+        & > li {
+            margin: 0 20px;
+
+            &:hover button::after {
+                visibility: visible;
+                transform: translateX(0);
+                opacity: 1;
+                transition: .4s;
+            }
+        }
+
+        & button {
+            position: relative;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 17px;
+            color: #002a66;
+            border: none;
+            background: none;
+            outline: none;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -8px;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background-color: #5d87c3;
+                transform: translateX(-100%);
+                opacity: 0;
+                transition: .4s;
+                visibility: hidden;
+            }
+        }
+    }
+
+    .tabs__content {
+        border: 2px solid $colorDarkBlue;
+        padding: 20px 0;
+
+        .tabs__item {
+            display: none;
+        }
+    }
+}
+
+// ==== active ==== //
+.book__tabs .tabs__direction li .active__direction {
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: $colorDarkBlue;
+    border-radius: 25px;
+    zoom: 110%;
+
+    &::after {
+        visibility: visible;
+        transform: translateX(0);
+        opacity: 1;
+        transition: .4s;
+    }
+}
+
+.book .book__tabs .tabs__content .active__tabs {
+    display: block;
+}

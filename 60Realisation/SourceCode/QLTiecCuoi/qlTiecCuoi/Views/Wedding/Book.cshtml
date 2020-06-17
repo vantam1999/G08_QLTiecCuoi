@@ -1,0 +1,132 @@
+﻿@model qlTiecCuoi.Models.DatTiec
+@{
+    ViewBag.Title = "Đặt tiệc cưới";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section bgTop {
+    @Html.Partial("_BgTop")
+}
+
+<section class="homePage__section section homePage__section--book book">
+    <div class="container">
+        <div classs="section__home book__home">
+            <div class="section__home--content">
+                <h1>Đặt Tiệc</h1>
+                <h3>QUÝ KHÁCH VUI LÒNG BẤM VÀO NÚT ĐẶT TIỆC BÊN DƯỚI!</h3>
+            </div>
+            <div class="book__tabs">
+                <form action="/Wedding/dattiec">
+                    <div class="tabs">
+                        <ol class="tabs__direction">
+                            <li>
+                                <button type="button" class="active__direction" data-target="tab-personal">Thông Tin Cá Nhân</button>
+                            </li>
+                            @*<li>
+                                <button type="button" data-target="tab-sanh">Thông Tin Sảnh tiệc</button>
+                            </li>*@
+                            <li>
+                                <button type="button" data-target="tab-food">Thông Tin Thực Đơn</button>
+                            </li>
+                            <li>
+                                <button type="button" data-target="tab-service">Thông Tin Dịch Vụ</button>
+                            </li>
+
+                        </ol>
+                        <div class="tabs__content">
+                            <div class="tabs__item active__tabs" id="tab-personal">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-sm-12">
+                                                            <label for="TenChuRe">Tên chú rễ: </label>
+                                                            <input class="form-control" type="text" name="TenChuRe" id="TenChuRe" />
+                                                        </div>
+                                                        <div class="col-lg-6 col-sm-12">
+                                                            <label for="TenCoDau">Tên cô dâu: </label>
+                                                            <input class="form-control" type="text" name="TenCoDau" id="TenCoDau" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-lg-4 col-sm-12">
+                                                            <label for="SDT">Số điện thoại: </label>
+                                                            <input class="form-control" type="text" name="SDT" id="SDT" />
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-12">
+                                                            <label for="Ngay">Ngày: </label>
+                                                            <input class="form-control" type="date" name="Ngay" id="Ngay" />
+                                                        </div>
+                                                        <div class="col-lg-4 col-sm-12">
+                                                            <label for="Ca">Ca: </label>
+                                                            <select class="form-control" name="Ca" id="Ca">
+                                                                <option selected>---- Ca ----</option>
+                                                                <option value="trua">Trưa</option>
+                                                                <option value="toi">Tối</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-sm-12">
+                                                            <label for="SoLuongBan">Số lượng bàn: </label>
+                                                            <input class="form-control" type="number" name="SoLuongBan" id="SoLuongBan" />
+                                                        </div>
+                                                        <div class="col-lg-6 col-sm-12">
+                                                            <label for="SoBanDuTru">Số lượng bàn dự trữ: </label>
+                                                            <input class="form-control" type="number" name="SoBanDuTru" id="SoBanDuTru" />
+                                                        </div>
+                                                        <div class="col-lg-6 col-sm-12">
+                                                            <label for="sanh">Sảnh: </label>
+                                                            <div>@{Html.RenderAction("chonsanh", "SanhTiec");}</div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="tabs__item" id="tab-sanh">
+                                
+                            </div>*@
+                            <div class="tabs__item" id="tab-food">
+                                @{Html.RenderAction("show", "ChonMonAn");}
+                                <div style="margin-left:50px;">
+                                    <a class=" btn btn-primary" href="/Wedding/Food">Thêm</a>
+                                </div>
+                            </div>
+                            <div class="tabs__item" id="tab-service">
+                                @{Html.RenderAction("show", "ChonDichVu");}
+                                <div style="margin-left:50px;">
+                                    <a class=" btn btn-primary" href="/Wedding/Service">Thêm</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div align="center" style="margin-top:20px;">
+                        <input type="submit" class="btn btn-primary" value="Đặt tiệc" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==== Script ==== -->
+<script src="~/Content/scripts/book.js"></script>

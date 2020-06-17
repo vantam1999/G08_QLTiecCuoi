@@ -1,0 +1,35 @@
+﻿*, body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: $colorWhiteCloud;
+    color: $colorDarkBlue;
+}
+html {
+    scroll-behavior: smooth;
+}
+a,
+a:hover {
+    text-decoration: none;
+}
+ol,
+ul {
+    margin-bottom: 0;
+    list-style: none;
+}
+select, input {
+    max-width: 100%;
+}
+@mixin crossHorizontal($width, $height, $backgroundColor) {
+    width: $width;
+    height: $height;
+    background-color: $backgroundColor;
+}
+@mixin flex($justifyContent, $alignItems) {
+    display: flex;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+}
